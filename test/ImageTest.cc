@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../src/Image.h"
+#include "../src/qr_image.h"
 #include <qrencode.h>
 
 int main() {
@@ -8,18 +8,18 @@ int main() {
 
   code = QRcode_encodeString("Version 2", 2, QR_ECLEVEL_L, QR_MODE_KANJI, 1);
   
-  Image img(code->width, "#000000", 10);
+  QrImage img(code->width, 10);
   unsigned char *p = code->data;
 
   for(int i = 0; i < code->width; i++) {
     for(int j = 0; j < code->width; j++) {
       if (*p & 1) {
-        img.draw(j, i, true);
+        img.draw(j, i);
       }
       p++;
     }
   }
 
-  img.save("test.png");
+  img.save("test.png", QrImage::SVG);
   return 0;
 }

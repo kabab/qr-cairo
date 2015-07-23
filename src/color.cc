@@ -1,4 +1,4 @@
-#include "Color.h"
+#include "color.h"
 #include <cassert>
 #include <stdlib.h>
 
@@ -15,8 +15,28 @@ Color::Color(double r, double g, double b, double a) {
   this->r = r, this->g = g, this-> b = b, this->a = a;
 }
 
+Color::Color(const char *color) {
+  assert(Color::is_valid_color(color)); 
 
-bool Color::is_valid_color(char *color) {
+  int len = std::strlen(color);
+  int hexcolor = strtol(&color[1], NULL, 16);
+  b = (hexcolor & 0xff) / 255.0;
+  hexcolor >>= 8;
+  g = (hexcolor & 0xff) / 255.0;
+  hexcolor >>= 8;
+  r = (hexcolor & 0xff) / 255.0;
+}
+
+/*
+Color::Color(const Color& color) {
+  this->r = color.r;
+  this->g = color.g;
+  this->b = color.b;
+  this->a = color.a;
+}
+*/
+
+bool Color::is_valid_color(const char* color ) {
   int len = std::strlen(color);
 
   if(len != 4 && len != 7 && color[0] != '#') {
@@ -33,36 +53,24 @@ bool Color::is_valid_color(char *color) {
   return true;
 }
 
-Color::Color(char *color) {
-  assert(Color::is_valid_color(color)); 
-
-  int len = std::strlen(color);
-  int hexcolor = strtol(&color[1], NULL, 16);
-  b = (hexcolor & 0xff) / 255.0;
-  hexcolor >>= 8;
-  g = (hexcolor & 0xff) / 255.0;
-  hexcolor >>= 8;
-  r = (hexcolor & 0xff) / 255.0;
-}
-
 void Color::setAlpha(double a) {
   assert( a >= 0 && a <= 1);
   this-> a = a;
 }
 
-double Color::red() {
+double Color::red() const {
   return this->r;
 }
 
 
-double Color::blue() {
+double Color::blue() const{
   return this->b;
 }
 
-double Color::green() {
+double Color::green() const{
   return this->g;
 }
 
-double Color::alpha() {
+double Color::alpha() const{
   return this->a;
 }
