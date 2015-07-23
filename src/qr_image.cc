@@ -1,8 +1,7 @@
 #include <cairo-svg.h>
 #include "qr_image.h"
 
-QrImage::QrImage(int size, int box_size, Color back, Color fill) {
-  
+QrImage::QrImage (int size, int box_size, Color back, Color fill) {
   double alpha;
   
   this->size = size;
@@ -13,23 +12,21 @@ QrImage::QrImage(int size, int box_size, Color back, Color fill) {
   surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32, width, width);
   cr = cairo_create (surface);
   
-  alpha = back.alpha() >= 0 ? back.alpha() : 1;
+  alpha = back.alpha() >= 0.0 ? back.alpha() : 1;
   cairo_set_source_rgba(cr, back.red(), back.green(), back.blue(), alpha);
   cairo_paint(cr);
 
-  alpha = fill.alpha() >= 0 ? fill.alpha() : 1;  
+  alpha = fill.alpha() >= 0.0 ? fill.alpha() : 1;  
   cairo_set_source_rgba(cr, fill.red(), fill.green(), fill.blue(), alpha);
 }
 
-void QrImage::set_fill_color(const Color& c) {
-  
-  int a = c.alpha() >= 0.0 ? c.alpha() : 1;
-
+void QrImage::set_fill_color (const Color& c) {
+  double a = c.alpha() >= 0.0 ? c.alpha() : 1;
   cairo_set_source_rgba(cr, c.red(), c.green(), c.blue(), a);
 }
 
-void QrImage::draw(int x, int y) {
-  
+void QrImage::draw (int x, int y) {
+
   double pos_x = (double)x * box_size + box_size * 4;
   double pos_y = (double)y * box_size + box_size * 4;
 
@@ -38,6 +35,7 @@ void QrImage::draw(int x, int y) {
 }
 
 void QrImage::save(const char *filename, QrImage::Type t) {
+  
   switch (t) {
   case PNG:
     cairo_surface_write_to_png(surface, filename);

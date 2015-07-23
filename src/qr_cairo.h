@@ -7,8 +7,8 @@
 
 class QrCairo {
 public:
-  enum EC_LEVEL {L, Q, H, M};
-  QrCairo(const char *, EC_LEVEL)
+  enum EC_LEVEL {L = 0, Q, H, M};
+  QrCairo(const char *, EC_LEVEL);
   void set_fill_color(const Color&);
   void set_back_color(const Color&);
   void save(const char*, const char*);
@@ -22,6 +22,6 @@ private:
   char *data;
   EC_LEVEL ec;
   int box_size;
-}
+};
 
 #endif

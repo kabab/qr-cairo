@@ -8,7 +8,7 @@ class Color {
  public:
   Color(double r, double g, double b, double a = -1);
   Color(const char *color);
-  Color(const Color& color);
+  // Color(const Color& color);
   static bool is_valid_color(const char *color);
   void setAlpha(double a);
   double red() const;

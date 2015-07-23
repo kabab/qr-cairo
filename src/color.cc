@@ -10,7 +10,7 @@
 
 Color::Color(double r, double g, double b, double a) {
   assert(r >= 0 && r <= 1 && g >= 0 && g <= 1 &&
-         b >= 0 && b <= 1 && ((a >= 0 && a <= 1) || a == -1));
+         b >= 0 && b <= 1 && ((a >= 0 && a <= 1) || a == -1.0));
   
   this->r = r, this->g = g, this-> b = b, this->a = a;
 }
@@ -25,6 +25,7 @@ Color::Color(const char *color) {
   g = (hexcolor & 0xff) / 255.0;
   hexcolor >>= 8;
   r = (hexcolor & 0xff) / 255.0;
+  a = -1;
 }
 
 /*
