@@ -25,8 +25,10 @@
   "author": "Amine KABAB <kabab1993@gmail.com> (http://aminekabab.me)",
   "license": "MIT",
   "gypfile": true,
+
   "bugs": {
     "url": "https://github.com/kabab/qr-cairo/issues"
   },
+  "readme": "README.md",
   "homepage": "https://github.com/kabab/qr-cairo#readme"
 }
