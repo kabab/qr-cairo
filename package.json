@@ -1,6 +1,6 @@
 {
   "name": "qr-cairo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Node library for generating qr code images based on cairo library",
   "main": "build/Release/init",
   "directories": {
@@ -25,7 +25,6 @@
   "author": "Amine KABAB <kabab1993@gmail.com> (http://aminekabab.me)",
   "license": "MIT",
   "gypfile": true,
-
   "bugs": {
     "url": "https://github.com/kabab/qr-cairo/issues"
   },
