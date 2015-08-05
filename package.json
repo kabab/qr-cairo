@@ -1,6 +1,6 @@
 {
   "name": "qr-cairo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node library for generating qr code images based on cairo library",
   "main": "build/Release/init",
   "directories": {
