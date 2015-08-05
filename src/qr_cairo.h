@@ -5,6 +5,8 @@
 #include "color.h"
 #include "qr_image.h"
 
+
+
 class QrCairo {
 public:
   enum EC_LEVEL {L = 0, Q, H, M};
@@ -13,6 +15,7 @@ public:
   void set_back_color(const Color&);
   void save(const char*, const char*);
   void set_box_size(int size);
+  ~QrCairo();
 private:
   void generate();
   

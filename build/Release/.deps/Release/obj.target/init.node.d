@@ -1,0 +1,1 @@
+cmd_Release/obj.target/init.node := g++ -shared -pthread -rdynamic -m64  -Wl,-soname=init.node -o Release/obj.target/init.node -Wl,--start-group Release/obj.target/init/src/init.o Release/obj.target/init/src/color.o Release/obj.target/init/src/qr_image.o Release/obj.target/init/src/qr_cairo.o -Wl,--end-group -lcairo -lqrencode

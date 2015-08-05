@@ -23,7 +23,6 @@ void QrCairo::set_back_color (const Color& b) {
 
 void QrCairo::generate () {
   qr_code = QRcode_encodeString (data, 0, (QRecLevel) ec, QR_MODE_KANJI, 1);
-  
   qr_image = new QrImage(qr_code->width, box_size, back, fill);
 
   unsigned char *p = qr_code->data;
@@ -44,9 +43,8 @@ void QrCairo::set_box_size (int size) {
 
 void QrCairo::save (const char* filename, const char* filetype) {
   QrImage::Type t = QrImage::PNG;
-  if (strcmp(filetype, "png") == 0) {
-    t = QrImage::PNG;
-  } else if (strcmp(filetype, "svg") == 0) {
+  
+  if (strcmp(filetype, "svg") == 0) {
     t = QrImage::SVG;
   }
   
@@ -54,3 +52,8 @@ void QrCairo::save (const char* filename, const char* filetype) {
   this->qr_image->save(filename, t);
 }
 
+QrCairo::~QrCairo () {
+  delete qr_code;
+  delete qr_image;
+  delete data;
+}
