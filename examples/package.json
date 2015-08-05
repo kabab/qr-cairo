@@ -1,0 +1,12 @@
+{
+	"name": "qr-cairo-sample",
+	"description": "Qr Cairo Example file",
+	"main": "samples.js",
+	"scripts": {
+		"start": "node samples.js",
+		"show": "eog test1.png"
+	},
+	"dependencies": {
+		"qr-cairo": "*"
+	}
+}

@@ -1,0 +1,32 @@
+{
+  "name": "qr-cairo",
+  "version": "0.0.1",
+  "description": "Node library for generating qr code images based on cairo library",
+  "main": "build/Release/init",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kabab/qr-cairo.git"
+  },
+  "keywords": [
+    "qr",
+    "cairo",
+    "libqrencode",
+    "qrencode",
+    "qr-cairo"
+  ],
+  "author": "Amine KABAB <kabab1993@gmail.com> (http://aminekabab.me)",
+  "license": "MIT",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/kabab/qr-cairo/issues"
+  },
+  "homepage": "https://github.com/kabab/qr-cairo#readme"
+}
