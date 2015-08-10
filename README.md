@@ -1,29 +1,26 @@
+QR Code generator for node
 =========================
-Qr Code genartor for node
-=========================
 
-Another Qr library for nodejs, but this one you could customize more things on you Qr code result,
- (still needs some work), the current version support a lot of stuff like changing background and code color.
+Another [QR code](https://en.wikipedia.org/wiki/QR_code) library for nodejs, aiming at allowing more customization on your QR code result :
+- changing background
+- changing code color
+(still needs some work)
 
-This library is based on the native Cairo library and libqrencode library, so as requirements
-you should had this two libraries on your OS.
-
-You can get Cairo library from here http://www.cairographics.org/download/ 
-
-And libqrencode from here https://fukuchi.org/works/qrencode/
+This library is based on the native Cairo and libqrencode library, so as requirements
+you should have this two libraries installed on your OS :
+* Cairo library http://www.cairographics.org/download/ 
+* libqrencode https://fukuchi.org/works/qrencode/
 
 Installation
 ------------
-To install qr-cairo you can download the library and install easily with npm command
-
+Use npm.
 ```shell
 npm install qr-cairo
 ```
 
 Usage
 -----
-The code below show a basic example of generating an image with Qr code, the genereted code will had
-as default, transparent background color, black filling color and the correction level by default is low.
+The code below shows a basic example of generating an image with gr-cairo with default settings : transparent background, black foreground and correction level to "low".
 
 ```javascript
 var qr_cairo = require('qr-cairo');
@@ -35,7 +32,7 @@ qr_cairo.save('http://aminekabab.me/blog', 'test1.png');
 Advanced Usage
 --------------
 
-Currently qr-cairo has one method that generate the qr image 
+Currently qr-cairo has one method that generates the qr image 
 ```javascript
 qr_cairo.save(value, path [, options])
 ```
@@ -48,11 +45,11 @@ qr_cairo.save(value, path [, options])
 
 ``option.back_color`` the background color in hexadecimal format (default color is transparent)
 
-``option.fill_color`` code drawing color (default : #000000)
+``option.fill_color`` foreground color (default : #000000)
 
 ``option.ec_level`` error correction level ('L' : LOW, 'M' : MEDIUM, 'Q' : QUALITY, 'H', HIGH)
 
-``option.box_size`` the box size in pixel in the qrcode
+``option.box_size`` the box size in pixel of the qrcode
 
 ```javascript
 var qr_cairo = require('qr-cairo');
